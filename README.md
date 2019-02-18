@@ -36,6 +36,14 @@ Or if you want to install and try all sample projects on your device, run `gradl
 
 Note: Just make sure that `local.properties` contains the paths for `sdk.dir` and `ndk.dir`. Or you can set them as enviroment variables of you shell. On some system, you may need add `JAVA_HOME` envairoment valiable that points to JDK directory.  
 
+If you want to build in *Docker*, make sure you have docker engine and docker-compose installed and
+1. change directory into the directory where you want to checkout the project.
+2. clone this repository with `git clone https://github.com/saki4510t/UVCCamera.git`
+3. change directory into `UVCCamera` directory with `cd UVCCamera`
+4. export ANDROID_ROOT env variable: `export ANDROID_ROOT=/path/to/your/android-sdk`
+5. make sure your `local.properties` point to paths inside the container. Your android root will be mounted to `/android`
+6. run `docker-compose run --rm uvccamera`
+
 If you want to use Android Studio(unfortunately NDK supporting on Android Studio is very poor though),
 1. make directory on your favorite place (this directory is parent directory of `UVCCamera` project).
 2. change directory into the directory.

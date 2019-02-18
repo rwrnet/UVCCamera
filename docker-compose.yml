@@ -1,0 +1,19 @@
+# make sure your local.properties point the mounted paths e.g.
+# sdk.dir=/android
+# ndk.dir=/android/android-ndk-r14b
+# then run it
+# > docker-compose run --rm uvccamera
+version: '3'
+services:
+  uvccamera:
+    build: ./
+    image: gradle-extended
+    command:
+     - sh
+     - -c
+     - "gradle clean && gradle build"
+    volumes:
+     - ./:/home/gradle/project
+     - ./.gradle:/home/gradle/.gradle
+     - ${ANDROID_ROOT}:/android
+    working_dir: /home/gradle/project
